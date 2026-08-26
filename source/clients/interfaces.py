@@ -25,3 +25,9 @@ class DropboxClient(Protocol):
 
     def upload(self, file_path: Path, destination: str) -> str:
         ...
+
+
+class VideoDownloader(Protocol):
+
+    def download(self, video_url: str, output_path: Path) -> Path:
+        ...
