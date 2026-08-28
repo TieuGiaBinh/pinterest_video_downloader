@@ -1,7 +1,7 @@
 from pathlib import Path
 from source.clients.dropbox import DropboxAPIClient
 from source.clients.google_sheets import GoogleSheetsAPIClient
-from source.clients.pinterest_downloader import Http_Downloader
+from source.clients.pinterest_downloader import HttpVideoDownloader
 from source.config.settings import Settings
 from source.services.video_processor import VideoProcessingService
 
@@ -15,7 +15,7 @@ def main():
     dropbox = DropboxAPIClient(access_token=settings.dropbox_access_token)
 
     # Pinterest implementation sẽ được inject ở đây.
-    pinterest = ...
+    pinterest = HttpVideoDownloader()
 
     service = VideoProcessingService(sheets=sheets, pinterest=pinterest, dropbox=dropbox)
 
