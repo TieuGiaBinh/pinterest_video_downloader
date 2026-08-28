@@ -1,6 +1,7 @@
 from pathlib import Path
 from source.clients.dropbox import DropboxAPIClient
 from source.clients.google_sheets import GoogleSheetsAPIClient
+from source.clients.pinterest_downloader import Http_Downloader
 from source.config.settings import Settings
 from source.services.video_processor import VideoProcessingService
 
