@@ -12,6 +12,7 @@ class GooglesheetsVideos (VideoProcessing):
         videos = []
       
         for record in records:
+          
             if record['Download Status'] != 'Pending':
                 continue
 
