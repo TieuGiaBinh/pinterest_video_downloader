@@ -1,8 +1,8 @@
-class GooglesheetsVideos (VideoProcessing):
+class GooglesheetsVideos(VideoProcessing):
   
     def __init__(self, worksheet):
       
-        self.worksheet = wroksheet
+        self.worksheet = worksheet
 
 
     def get_videos(self) -> list[Video]:
@@ -17,7 +17,7 @@ class GooglesheetsVideos (VideoProcessing):
 
             video = Video(
               id = str(record['ID']),
-              pinterest_link = record['Pinterest Links'],
+              pinterest_link = record['Pinterest Link'],
               download_status = record['Dowload Status'],
               drobox_uploaded = record['Drobox Uploaded'],
               remark = record['Remark'],
