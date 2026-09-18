@@ -1,4 +1,4 @@
-class GooglesheetsVideos(VideoProcessing):
+class GooglesheetsVideos (VideoProcessing):
   
     def __init__(self, worksheet):
       
