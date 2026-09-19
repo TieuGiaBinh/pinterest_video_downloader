@@ -1,3 +1,7 @@
+from src.models.video import Video
+from src.interfaces.video_processing import VideoProcessing
+
+
 class GooglesheetsVideos (VideoProcessing):
   
     def __init__(self, worksheet):
