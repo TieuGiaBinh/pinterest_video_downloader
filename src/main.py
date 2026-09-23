@@ -10,9 +10,10 @@ def main():
     pinterest_sheet = google_client.get_worksheet('pinterest')
 
     google_sheet = GoogleSheetsVideo(pinterest_sheet)
-    pinterest_videos = google_sheet.get_video()
+    pinterest_videos = google_sheet.get_videos()
 
-    print(pinterest_videos)
+    print(f'ID: {pinterest_videos[0].id}')
+    print(f'Pinterest link: {pinterest_videos[0].pinterest_link}')
 
 
 if __name__ == '__main__':
