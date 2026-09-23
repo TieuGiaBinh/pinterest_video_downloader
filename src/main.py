@@ -9,7 +9,7 @@ def main():
     google_client = GooglesheetsClient(service_account_json = os.environ['GOOGLE_SERVICE_ACCOUNT_JSON'], spreadsheet_id = os.enviro['GOOGLE_SPREADSHEET_ID'])
     pinterest_sheet = google_client.get_worksheet('pinterest')
 
-    google_sheet = GoogleSheetsVideo(pinterest_sheet)
+    google_sheet = GooglesheetsVideo(pinterest_sheet)
     pinterest_videos = google_sheet.get_videos()
 
     print(f'ID: {pinterest_videos[0].id}')
