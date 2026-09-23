@@ -7,7 +7,7 @@ def main():
   
     print('Github action start running')
   
-    google_client = GoogleSheetsClient(service_account_json = os.environ['GOOGLE_SERVICE_ACCOUNT_JSON'], spreadsheet_id = os.enviro['GOOGLE_SPREADSHEET_ID'])
+    google_client = GoogleSheetsClient(service_account_json = os.environ['GOOGLE_SERVICE_ACCOUNT_JSON'], spreadsheet_id = os.environ['GOOGLE_SPREADSHEET_ID'])
     pinterest_sheet = google_client.get_worksheet('pinterest')
 
     google_sheet = GoogleSheetsVideo(pinterest_sheet)
