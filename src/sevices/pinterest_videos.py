@@ -2,7 +2,7 @@ from src.models.video import Video
 from src.interfaces.video_interfaces import VideoInterfaces
 
 
-class GoogleSheetsVideos (VideoInterfaces):
+class PinterestVideos (VideoInterfaces):
   
     def __init__(self, worksheet):
       
