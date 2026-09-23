@@ -16,7 +16,7 @@ class GoogleSheetsClient:
 
     def get_worksheet(self, worksheet_name: str):
       
-        service_account_info = json.load(self.service_account_json)
+        service_account_info = json.loads(self.service_account_json)
         credentials = Credentials.from_service_account_info(service_account_info, scopes = self.SCOPES)
         client = gspread.authorize(credentials)
         spreadsheet = client.open_by_key(self.spreadsheet_id)
