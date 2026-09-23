@@ -1,8 +1,8 @@
 from src.models.video import Video
-from src.interfaces.video_processing import VideoProcessing
+from src.interfaces.video_interfaces import VideoInterfaces
 
 
-class GoogleSheetsVideos (VideoProcessing):
+class GoogleSheetsVideos (VideoInterfaces):
   
     def __init__(self, worksheet):
       
