@@ -1,5 +1,5 @@
 from src.sevices.googlesheets_client import GoogleSheetsClient
-from src.sevices.googlesheets_videos import GoogleSheetsVideos
+from src.sevices.googlesheets_videos import GooglesheetsVideos
 
 
 def main():
