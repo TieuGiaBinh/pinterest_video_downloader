@@ -1,8 +1,8 @@
 from src.models.video import Video
-from src.interfaces.video_interfaces import VideoInterfaces
+from src.interfaces.googlesheets_interfaces import GoogleSheetsInterfaces
 
 
-class PinterestInfo (VideoInterfaces):
+class GoogleSheetsInfo (GoogleSheetsInterfaces):
   
     def __init__(self, worksheet):
       
