@@ -9,7 +9,7 @@ class GoogleSheetsInfo (GoogleSheetsInterfaces):
         self.worksheet = worksheet
 
 
-    def get_videos(self) -> list[Video]:
+    def get_pending_videos(self) -> list[Video]:
       
         records = self.worksheet.get_all_records()
       
