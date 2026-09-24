@@ -5,7 +5,7 @@ import json
 
 class GoogleSheetsClient:
   
-    SCOPES = ['https://www.googleapis.com/auth/spreadsheet']
+    SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
   
     def __init__(self, service_account_json: str, spreadsheet_id: str):
