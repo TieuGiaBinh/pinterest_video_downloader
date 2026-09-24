@@ -24,7 +24,7 @@ class GoogleSheetsInfo (GoogleSheetsInterfaces):
               id = str(record['ID']),
               pinterest_link = record['Pinterest Link'],
               download_status = record['Download Status'],
-              drobox_uploaded = record['Drobox Uploaded'],
+              dropbox_uploaded = record['Dropbox Uploaded'],
               remark = record['Remark'],
             )
 
