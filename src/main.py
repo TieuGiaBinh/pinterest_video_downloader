@@ -1,5 +1,5 @@
 from src.sevices.googlesheets_client import GoogleSheetsClient
-from src.sevices.googlesheets_info import GoogleSheetInfo
+from src.sevices.googlesheets_info import GoogleSheetsInfo
 import os
 
 
