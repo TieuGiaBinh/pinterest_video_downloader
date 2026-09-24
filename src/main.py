@@ -11,7 +11,7 @@ def main():
     work_sheet = google_client.get_worksheet('pinterest')
 
     google_sheet = GoogleSheetsInfo(work_sheet)
-    pinterest_videos = google_sheet.get_videos()
+    pinterest_videos = google_sheet.get_pending_videos()
 
     print(f'ID: {pinterest_videos[0].id}')
     print(f'Pinterest link: {pinterest_videos[0].pinterest_link}')
