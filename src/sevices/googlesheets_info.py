@@ -17,13 +17,13 @@ class GoogleSheetsInfo (GoogleSheetsInterfaces):
       
         for record in records:
           
-            if record['Download Status'] != 'Pending':
+            if record['Download Status'].lower() != 'pending':
                 continue
 
             video = Video(
               id = str(record['ID']),
               pinterest_link = record['Pinterest Link'],
-              download_status = record['Dowload Status'],
+              download_status = record['Download Status'],
               drobox_uploaded = record['Drobox Uploaded'],
               remark = record['Remark'],
             )
