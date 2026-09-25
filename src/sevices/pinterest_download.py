@@ -1,5 +1,6 @@
 from pathlib import Path
 import yt_dlp
+from src.interfaces.pinterest_download_interfaces import PinterestDownloadInterfaces
 
 
 class PinterestDownload(PinterestDownloadInterfaces):
