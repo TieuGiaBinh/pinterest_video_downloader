@@ -1,6 +1,7 @@
+import os
 from src.sevices.googlesheets_client import GoogleSheetsClient
 from src.sevices.googlesheets_info import GoogleSheetsInfo
-import os
+from src.sevices.pinterest_download import PinterestDownload
 
 
 def main():
@@ -13,8 +14,13 @@ def main():
     google_sheet = GoogleSheetsInfo(work_sheet)
     pinterest_videos = google_sheet.get_pending_videos()
 
-    print(f'ID: {pinterest_videos[0].id}')
-    print(f'Pinterest link: {pinterest_videos[0].pinterest_link}')
+    for video in pinterest_videos:
+      pinterest_dl = PinterestDownload(video)
+      video_path = pinterest_dl.download_with_yt_dlp()
+
+      print(f'video path: {video_path}')
+      print(f'ID: {video.id}')
+      print(f'Pinterest url: {video.pinterest_link}')
 
 
 if __name__ == '__main__':
