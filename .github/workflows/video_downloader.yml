@@ -18,6 +18,9 @@ jobs:
         with:
           python-version: "3.14"
 
+      - name: Install FFMPEG
+        uses: FedericoCabonara/setup-ffmpeg@v3
+        
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
