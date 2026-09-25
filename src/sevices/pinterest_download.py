@@ -2,7 +2,7 @@ from pathlib import Path
 import yt_dlp
 
 
-class PinterestDownload:
+class PinterestDownload(PinterestDownloadInterfaces):
 
     def __init__(self, video: Video):
       
