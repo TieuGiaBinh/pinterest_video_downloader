@@ -17,8 +17,9 @@ class PinterestDownload(PinterestDownloadInterfaces):
         output_path = Path(self.output_dir)
         output_path.mkdir(parents = True, exist_ok = True)
 
+        filename = f'{self.id}_%(id)s.%(ext)s'
         yt_dlp_opts = {
-        "outtmpl": str(output_path / "%(self.id)s_%(id)s.%(ext)s"),
+        "outtmpl": str(output_path / filename),
         "format": (
             "bestvideo[ext=mp4]+bestaudio[ext=m4a]/"
             "best[ext=mp4]/"
