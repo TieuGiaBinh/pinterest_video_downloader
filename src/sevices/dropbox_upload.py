@@ -13,3 +13,19 @@ class DropboxUpload:
         self.dropbox_client = dropbox.Dropbox(access_token)
         self.local_file = local_file
         self.dropbox_path = dropbox_path
+
+
+    def upload_small_file(self):
+        pass
+
+
+    def upload_large_file(self):
+        pass
+
+
+    def upload_file(self):
+        pass
+
+
+    def precondtion_upload_check(self):
+        pass
