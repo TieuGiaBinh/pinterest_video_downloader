@@ -24,9 +24,9 @@ class DropboxUpload:
 
 
     def upload_file(self):
-        if not Path(self.local_file).exists():
-            raise FileNotFoundError(f'File is not found at path {self.local_file}')
+        pass
 
 
     def precondtion_upload_check(self):
-        pass
+        if not Path(self.local_file).exists():
+            raise FileNotFoundError(f'File is not found at path {self.local_file}')
