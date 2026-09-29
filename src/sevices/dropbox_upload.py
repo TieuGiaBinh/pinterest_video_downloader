@@ -15,10 +15,11 @@ class DropboxUpload:
         self.dropbox_path = dropbox_path
 
 
-    def upload_small_file(self, file):
-        chunk = file.read(self.CHUNK_SIZE)
-        self.dropbox_client.files_upload(chunk, self.dropbox_path, mode = WriteMode.overwrite)
-        print('upload successful')
+    def upload_small_file(self, file, file_size):
+        if file_size <= self.CHUNK_SIZE:
+            chunk = file.read(self.CHUNK_SIZE)
+            self.dropbox_client.files_upload(chunk, self.dropbox_path, mode = WriteMode.overwrite)
+            print('upload successful')
 
 
     def upload_large_file(self):
