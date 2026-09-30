@@ -22,8 +22,26 @@ class DropboxUpload:
             print('upload successful')
 
 
-    def upload_large_file(self):
-        pass
+    def upload_large_file(self, file, file_size):
+        chunk = file.read(self.CHUNK_SIZE)
+        session_start = self.dropbox_client.files_upload_session_start(chunk)
+        session_id = session_start.session_id
+        offset = len(chunk)
+
+        while offset < file_size:
+            chunk = file.read(self.CHUNK_SIZE)
+            
+            if not chunk:
+                break
+
+            if offset + len(chunk) >= file_size:
+                cursor = dropbox.files.UploadSessionCursor(session_id = session_id, offset = offset)
+                commit = dropbox.files.CommitInfo(path = self.dropbox_path, mode = WriteMode.overwrite)
+                self.dropbox_client.files_upload_session_finish(chunk, cursor, commit)
+                offset += len(chunk)
+            else:
+                cursor = dropbox.
+            
 
 
     def upload_file(self):
