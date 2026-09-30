@@ -15,11 +15,9 @@ class DropboxUpload:
         self.dropbox_path = dropbox_path
 
 
-    def upload_small_file(self, file, file_size):
-        if file_size <= self.CHUNK_SIZE:
-            chunk = file.read(self.CHUNK_SIZE)
-            self.dropbox_client.files_upload(chunk, self.dropbox_path, mode = WriteMode.overwrite)
-            print('upload successful')
+    def upload_small_file(self, file, chunk):
+        self.dropbox_client.files_upload(chunk, self.dropbox_path, mode = WriteMode.overwrite)
+        print('small file was uploaded successful')
 
 
     def upload_large_file(self, file, file_size):
@@ -38,14 +36,25 @@ class DropboxUpload:
                 cursor = dropbox.files.UploadSessionCursor(session_id = session_id, offset = offset)
                 commit = dropbox.files.CommitInfo(path = self.dropbox_path, mode = WriteMode.overwrite)
                 self.dropbox_client.files_upload_session_finish(chunk, cursor, commit)
-                offset += len(chunk)
             else:
-                cursor = dropbox.
-            
+                cursor = dropbox.files.UploadSessionCursor(session_id = session_id, offset = offset)
+                self.dropbox_client.files_upload_session_append_v2(chunk, cursor)
+
+            offset += len(chunk)
+
+        print('large file was uploaded successfully')     
 
 
     def upload_file(self):
-        pass
+        self.preconditon_upload_check()
+
+        file_size = Path(self.local_file).stat().st_size
+        with Path(self.local_file).open('rb') as file:
+            chunk = file.read(self.CHUNK_SIZE)
+            if file_size <= chunk:
+                self.upload_small_file(file, chunk)
+            else:
+                self.upload_large_file(file, file_size)      
 
 
     def precondtion_upload_check(self):
