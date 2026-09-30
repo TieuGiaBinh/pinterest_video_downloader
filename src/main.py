@@ -2,6 +2,7 @@ import os
 from src.sevices.googlesheets_client import GoogleSheetsClient
 from src.sevices.googlesheets_info import GoogleSheetsInfo
 from src.sevices.pinterest_download import PinterestDownload
+from src.sevices.dropbox_upload import DropboxUpload
 
 
 def main():
