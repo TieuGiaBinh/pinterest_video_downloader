@@ -20,13 +20,14 @@ def main():
       pinterest_dl = PinterestDownload(video)
       video_path = pinterest_dl.download_with_yt_dlp()
 
-      dropbox_path = Path('/Debug/Pinterest/test.mp4')
+      dropbox_path = f'/Debug/Pinterest/{video_path.name}'
       dropbox_ul = DropboxUpload(os.environ['DROPBOX_ACCESS_TOKEN'], video_path, dropbox_path)
       dropbox_ul.upload_file()
       
       print(f'video path: {video_path}')
       print(f'ID: {video.id}')
       print(f'Pinterest url: {video.pinterest_link}')
+      print(f'video name: {video_path.name}')
 
 
 if __name__ == '__main__':
