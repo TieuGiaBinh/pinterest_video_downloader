@@ -9,7 +9,7 @@ class DropboxUpload:
 
     CHUNK_SIZE = 4 * 1024 * 1024  #4MB
 
-    def __init__(self, access_token, local_file, dropbox_path):
+    def __init__(self, access_token: str, local_file: Path, dropbox_path: Path):
         self.dropbox_client = dropbox.Dropbox(access_token)
         self.local_file = local_file
         self.dropbox_path = dropbox_path
@@ -48,8 +48,8 @@ class DropboxUpload:
     def upload_file(self):
         self.preconditon_upload_check()
 
-        file_size = Path(self.local_file).stat().st_size
-        with Path(self.local_file).open('rb') as file:
+        file_size = self.local_file.stat().st_size
+        with self.local_file.open('rb') as file:
             chunk = file.read(self.CHUNK_SIZE)
             if file_size <= chunk:
                 self.upload_small_file(file, chunk)
@@ -58,5 +58,5 @@ class DropboxUpload:
 
 
     def precondtion_upload_check(self):
-        if not Path(self.local_file).exists():
+        if not self.local_file.exists():
             raise FileNotFoundError(f'File is not found at path {self.local_file}')
