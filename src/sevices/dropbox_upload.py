@@ -51,7 +51,7 @@ class DropboxUpload:
         file_size = self.local_file.stat().st_size
         with self.local_file.open('rb') as file:
             chunk = file.read(self.CHUNK_SIZE)
-            if file_size <= chunk:
+            if file_size <= self.CHUNK_SIZE:
                 self.upload_small_file(file, chunk)
             else:
                 self.upload_large_file(file, file_size)      
