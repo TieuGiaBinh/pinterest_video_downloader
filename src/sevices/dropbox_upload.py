@@ -57,6 +57,6 @@ class DropboxUpload:
                 self.upload_large_file(file, file_size)      
 
 
-    def precondtion_upload_check(self):
+    def precondition_upload_check(self):
         if not self.local_file.exists():
             raise FileNotFoundError(f'File is not found at path {self.local_file}')
