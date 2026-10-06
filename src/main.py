@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from src.sevices.googlesheets_client import GoogleSheetsClient
 from src.sevices.googlesheets_info import GoogleSheetsInfo
 from src.sevices.pinterest_download import PinterestDownload
@@ -19,6 +20,10 @@ def main():
       pinterest_dl = PinterestDownload(video)
       video_path = pinterest_dl.download_with_yt_dlp()
 
+      dropbox_path = Path('/Debug/Pinterest/test.mp4')
+      dropbox_ul = DropboxUpload(os.environ['DROPBOX_ACCESS_TOKEN'], video_path, dropbox_path)
+      dropbox_ul.upload_file()
+      
       print(f'video path: {video_path}')
       print(f'ID: {video.id}')
       print(f'Pinterest url: {video.pinterest_link}')
