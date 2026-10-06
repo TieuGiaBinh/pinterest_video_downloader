@@ -46,7 +46,7 @@ class DropboxUpload:
 
 
     def upload_file(self):
-        self.preconditon_upload_check()
+        self.precondition_upload_check()
 
         file_size = self.local_file.stat().st_size
         with self.local_file.open('rb') as file:
