@@ -21,7 +21,7 @@ def main():
       video_path = pinterest_dl.download_with_yt_dlp()
 
       dropbox_path = f'/Debug/Pinterest/{video_path.name}'
-      dropbox_ul = DropboxUpload(os.environ['DROPBOX_ACCESS_TOKEN'], video_path, dropbox_path)
+      dropbox_ul = DropboxUpload(os.environ['DROPBOX_REFRESH_TOKEN'], os.environ['DROPBOX_APP_KEY'], os.environ['DROPBOX_APP_SECRET'], video_path, dropbox_path)
       dropbox_ul.upload_file()
       
       print(f'video path: {video_path}')
