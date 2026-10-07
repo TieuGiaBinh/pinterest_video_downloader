@@ -9,8 +9,8 @@ class DropboxUpload:
 
     CHUNK_SIZE = 4 * 1024 * 1024  #4MB
 
-    def __init__(self, access_token: str, local_file: Path, dropbox_path: Path):
-        self.dropbox_client = dropbox.Dropbox(access_token)
+    def __init__(self, refresh_token: str, app_key: str, app_secret: str, local_file: Path, dropbox_path: Path):
+        self.dropbox_client = dropbox.Dropbox(oauth2_refresh_token=refresh_token, app_key=app_key, app_secret=app_secret)
         self.local_file = local_file
         self.dropbox_path = dropbox_path
 
