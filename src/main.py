@@ -17,12 +17,16 @@ def main():
     pinterest_videos = google_sheet.get_pending_videos()
 
     for video in pinterest_videos:
-      pinterest_dl = PinterestDownload(video)
-      video_path = pinterest_dl.download_with_yt_dlp()
+      #pinterest_dl = PinterestDownload(video)
+      #video_path = pinterest_dl.download_with_yt_dlp()
 
-      dropbox_path = f'/Debug/Pinterest/{video_path.name}'
-      dropbox_ul = DropboxUpload(os.environ['DROPBOX_REFRESH_TOKEN'], os.environ['DROPBOX_APP_KEY'], os.environ['DROPBOX_APP_SECRET'], video_path, dropbox_path)
-      dropbox_ul.upload_file()
+      #dropbox_path = f'/Debug/Pinterest/{video_path.name}'
+      #dropbox_ul = DropboxUpload(os.environ['DROPBOX_REFRESH_TOKEN'], os.environ['DROPBOX_APP_KEY'], os.environ['DROPBOX_APP_SECRET'], video_path, dropbox_path)
+      #dropbox_ul.upload_file()
+
+      video.download_status = 'success'
+      video.dropbox_uploaded = 'uploaded'
+      google_sheet.update_googlesheets(video)
       
       print(f'video path: {video_path}')
       print(f'ID: {video.id}')
