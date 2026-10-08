@@ -37,7 +37,8 @@ class GoogleSheetsInfo (GoogleSheetsInterfaces):
         records = self.worksheet.get_all_records()
 
         for row_number, row in enumerate(records, start = 2):
-            if row['ID'] == video.id:
+            if str(row['ID']) == video.id:
                 self.worksheet.update(f'C{row_number}:D{row_number}',[[video.download_status, video.dropbox_uploaded]])
+                print('googlesheets was updated')
                 break
               
