@@ -6,3 +6,8 @@ class GoogleSheetsInterfaces (ABC):
     @abstractmethod
     def get_pending_videos(self) -> list[Video]:
         pass
+
+
+    @abstractmethod
+    def update_googlesheets(self, video: Video):
+        pass
