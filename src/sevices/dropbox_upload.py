@@ -20,8 +20,7 @@ class DropboxUpload:
         print('small file was uploaded successful')
 
 
-    def upload_large_file(self, file, file_size):
-        chunk = file.read(self.CHUNK_SIZE)
+    def upload_large_file(self, file, chunk, file_size):
         session_start = self.dropbox_client.files_upload_session_start(chunk)
         session_id = session_start.session_id
         offset = len(chunk)
@@ -54,7 +53,7 @@ class DropboxUpload:
             if file_size <= self.CHUNK_SIZE:
                 self.upload_small_file(file, chunk)
             else:
-                self.upload_large_file(file, file_size)      
+                self.upload_large_file(file, chunk, file_size)      
 
 
     def precondition_upload_check(self):
