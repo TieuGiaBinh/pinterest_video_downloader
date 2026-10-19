@@ -20,8 +20,7 @@ class PinterestDownload(PinterestDownloadInterfaces):
         filename = f'{self.id}_%(id)s.%(ext)s'
         yt_dlp_opts = {
         "outtmpl": str(output_path / filename),
-        "format": "bestvideo*+bestaudio/best",
-        "merge_output_format": "mp4",
+        "format": "bestvideo",
         "noplaylist": True,
         }
         with yt_dlp.YoutubeDL(yt_dlp_opts) as dlp:
