@@ -1,8 +1,8 @@
 name: Pinterest Video Downloader
 
 on:
-  schedule:
-    - cron: "0 3 */3 * *"
+  #schedule:
+    #- cron: "0 3 */3 * *"
   workflow_dispatch:
 
 jobs:
